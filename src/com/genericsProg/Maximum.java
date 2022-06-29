@@ -5,50 +5,53 @@ import java.util.Scanner;
 public class Maximum {
     public static void main(String[] args) {
         System.out.println("------Welcome to Generics problem program--------");
-        // importing scanner for user input
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Integers you want to check");
-        Integer a = sc.nextInt();
-        Integer b = sc.nextInt();
-        Integer c = sc.nextInt();
-// for string type input
-        System.out.println("Enter the Strings you want to check");
-        String d = sc.next();
-        String e = sc.next();
-        String f = sc.next();
-
-        //storing user input in Array named numb
-        Integer[] numb = new Integer[]{a,b,c};
-        //storing user input in Array named str
-        String[] str = new String[]{d,e,f};
 
         //calling function of findMaxFromInteger
-        Maximum.findMaxFromInteger(numb);
+        Maximum.findMaxFromInteger(23,56,14);
         //calling function of findMaxFromString
-        Maximum.findMaxFromString(str);
+        Maximum.findMaxFromString("apple","mango","banana");
+        //calling function of findMaxFromFloat
+        Maximum.findMaxFromFloat(80.5f, 25.33f,44.44f);
 
     }
 
     // Creating function for finding maximum value of user input
-    public static void findMaxFromInteger(Integer []numb) {
+    public static void findMaxFromInteger(Integer a, Integer b, Integer c) {
 
-        Integer max = numb[0];
-        if (numb[1].compareTo(max)>0)
-            max = numb[1];
-        if(numb[2].compareTo(max)>0)
-            max = numb[2];
-        System.out.println("Maximum number is " +max);
+        int max = a;
+        if (b.compareTo(max)>0)
+            max = b;
+        if(c.compareTo(max)>0)
+            max = c;
+        System.out.printf("Maximum integer Value from (%d, %d and %d): ",a,b,c);
+        System.out.println("");
+        System.out.println(max);
 
     }
 
-    public static void findMaxFromString(String []numb) {
+    public static void findMaxFromString(String string1, String string2, String string3 ) {
 
-        String max = numb[0];
-        if (numb[1].compareTo(max)>0)
-            max = numb[1];
-        if(numb[2].compareTo(max)>0)
-            max = numb[2];
-        System.out.println("Maximum Value string is " +max);
+        String max = string1;
+        if (string2.compareTo(max)>0)
+            max = string2;
+        if(string3.compareTo(max)>0)
+            max = string3;
+        System.out.printf("Maximum string Value from (%s, %s and %s): ",string1,string2,string3);
+        System.out.println("");
+        System.out.println(max);
+
+    }
+
+    public static void findMaxFromFloat(Float a, Float b, Float c ) {
+
+        Float max = a;
+        if (b.compareTo(max)>0)
+            max = b;
+        if(c.compareTo(max)>0)
+            max = c;
+        System.out.printf("Maximum float Value from (%f, %f and %f): ",a,b,c);
+        System.out.println("");
+        System.out.println(max);
 
     }
 }
