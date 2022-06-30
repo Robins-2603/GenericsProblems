@@ -67,7 +67,8 @@ public class Maximum {
             Arrays.sort(value);
             // last element will be max value
             E max = value[lengthOfArray-1];
-            System.out.println(max);
+          //  System.out.printf("Maximum of given \n E"+ max );
+            System.out.println();
             return max;
 
         }
