@@ -1,5 +1,8 @@
 package com.genericsProg;
 
+import java.lang.reflect.Array;
+import java.security.PrivateKey;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Maximum {
@@ -7,16 +10,25 @@ public class Maximum {
         System.out.println("------Welcome to Generics problem program--------");
 
         //calling function of findMaxFromInteger
-        Refactor2 compareInteger = new Refactor2(24,55,10);
+        System.out.println("Finding the maximum value in integers:");
+        Integer[] intValue = {5,10,51,15,87,20,61};
+        MaxMore compareInteger = new MaxMore(intValue);
+        compareInteger.display();
         System.out.println("Maximum of Integers: " +  compareInteger.findMax());
 
 
         //calling function of findMaxFromString
-        Refactor2 compareString = new Refactor2("apple","mango","banana");
+        System.out.println("Finding the maximum value String:");
+        String[] strValue = {"apple","mango","banana","pineapple",};
+        MaxMore compareString = new MaxMore(strValue);
+        compareString.display();
         System.out.println("Maximum of Strings: " +  compareString.findMax());
 
         //calling function of findMaxFromFloat
-        Refactor2 compareFloat = new Refactor2(80.5f, 25.33f,44.44f);
+        System.out.println("Finding the maximum value Float:");
+        Float[] fltValue = {80.5f, 25.33f,44.44f,55.26f,88.36f};
+        MaxMore compareFloat = new MaxMore(fltValue);
+        compareFloat.display();
         System.out.println("Maximum of Floats: " +compareFloat.findMax());
 
 
@@ -24,27 +36,40 @@ public class Maximum {
 
 
 
-    // Creating  generic class
-    static class Refactor2 <E extends Comparable<E>> {
-        E a;
-        E b;
-        E c;
+    // Creating  generic class for max more than three values
+    static class MaxMore <E extends Comparable<E>> {
+        private E[] value;  // declaring Array
 
         //parameterizing constructor
-        public Refactor2(E a, E b, E c) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
+
+        public MaxMore(E[] value) {
+            this.value = value;
         }
+        //creating function for displaying the value
+        public void display() {
+            System.out.println("Before sorting");
+            for(E element : value) {
+                System.out.printf("%s", element + ",");
+
+            }
+            Arrays.sort(value);
+            System.out.println();
+            System.out.println("After sorting:");
+            for(E element : value) {
+                System.out.printf("%s", element + ",");
+            }
+        }
+
         // Creating function for finding maximum value of user input
         public E findMax() {
 
-            E max = a;
-            if (b.compareTo(max)>0)
-                max = b;
-            if(c.compareTo(max)>0)
-                max = c;
+            int lengthOfArray = value.length;
+            Arrays.sort(value);
+            // last element will be max value
+            E max = value[lengthOfArray-1];
+            System.out.println(max);
             return max;
+
         }
     }
 }
